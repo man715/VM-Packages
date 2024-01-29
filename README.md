@@ -4,6 +4,8 @@
 
 # Virtual Machine Packages
 
+This is NOT to be used in production. Everything here is under experimentation. 
+
 This repository contains the source code for packages supporting the following analysis environment projects:
 * [FLARE VM](https://github.com/mandiant/flare-vm)
 * [CommandoVM](https://github.com/mandiant/commando-vm)
