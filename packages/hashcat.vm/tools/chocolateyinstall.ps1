@@ -22,7 +22,8 @@ try {
         Write-Output "Intel processor detected for hashcat."
     } else {
         Write-Output "Non-Intel processor detected. Hashcat will not work"
-        throw "Non-Intel processor detected."
+        Write-Output "Processor is $processor.Manufacturer"
+        # throw "Non-Intel processor detected."
     }
 
 
