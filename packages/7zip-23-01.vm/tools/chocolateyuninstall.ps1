@@ -2,7 +2,6 @@ $ErrorActionPreference = 'Continue'
 Import-Module vm.common -Force -DisableNameChecking
 
 $toolName = '7z'
-$category = 'Office'
 
 # Remove binary from PATH
 Uninstall-BinFile -Name $toolName
