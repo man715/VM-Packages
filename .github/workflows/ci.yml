@@ -55,5 +55,6 @@ jobs:
           Set-Location built_pkgs
 
           foreach ($package in $built_pkgs) {
+              Write-Output "Attemmpting to push $package"
               choco push -s "https://www.myget.org/F/man715/api/v2" -k ${{ secrets.MYGET_TOKEN }} $package
           }
