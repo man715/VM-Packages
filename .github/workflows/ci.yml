@@ -56,5 +56,6 @@ jobs:
 
           foreach ($package in $built_pkgs) {
               Write-Output "Attemmpting to push $package"
-              choco push $package -d -s "https://www.myget.org/F/man715/api/v2" -k ${{ secrets.MYGET_TOKEN }}
+              choco apikey add -k ${{ secrets.MYGET_TOKEN }} -s "https://www.myget.org/F/man715/api/v2/"
+              choco push $package -d -s "https://www.myget.org/F/man715/api/v2/"
           }
