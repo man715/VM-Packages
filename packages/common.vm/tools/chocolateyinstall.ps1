@@ -89,12 +89,12 @@ Write-Host -ForegroundColor Green "[+] PSModulePath set to:" $prevPath
 $envVarName = "TOOL_LIST_DIR"
 $toolListDir = [Environment]::GetEnvironmentVariable($envVarName, 2)
 if (-Not (Test-Path env:\$envVarName) -Or ($toolListDir -eq $null)) {
-    $toolListDir = Join-Path ${Env:USERPROFILE} "Desktop\Tools"
+    $toolListDir = "C:\Users\$Env:USERNAME\Desktop\Tools"
     if (-Not (Test-Path $toolListDir) ) {
         New-Item -Path $toolListDir -ItemType directory -Force | Out-Null
     }
 
-    Install-ChocolateyEnvironmentVariable -VariableName $envVarName -VariableValue $toolListDir -VariableType 'Machine'
+    Install-ChocolateyEnvironmentVariable -VariableName $envVarName -VariableValue $toolListDir -VariableType 'User'
     Set-Item "Env:$envVarName" $toolListDir -Force
 }
 Write-Host -ForegroundColor Green "[+] TOOL_LIST_DIR set to:" $toolListDir

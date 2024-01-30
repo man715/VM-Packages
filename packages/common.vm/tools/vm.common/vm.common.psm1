@@ -1235,7 +1235,7 @@ function VM-Apply-Configurations {
     }
 }
 
-# This function returns a string of "Win10", "Win11", or "Win11ARM"
+# This function returns a string of "Win10", "WinSrv2022", "Win11", or "Win11ARM"
 function VM-Get-WindowsVersion {
     $osInfo = Get-ComputerInfo
 
@@ -1245,6 +1245,9 @@ function VM-Get-WindowsVersion {
 
     if ($version -match "10") {
         return "Win10"
+    }
+    elseif ($version -match "2022") {
+        return "WinSrv2022"
     }
     elseif ($version -match "11" -and $osArchitecture -eq "64-bit") {
         return "Win11"
