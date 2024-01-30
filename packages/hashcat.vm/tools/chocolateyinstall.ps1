@@ -39,7 +39,7 @@ try {
     $zipPath = $packageArgs.fileFullPath
     VM-Assert-Path $zipPath
 
-    &"c:\program files\7-zip\7z.exe" x $zipPath -o"$toolDir" -y
+    7z x $zipPath -o"$toolDir" -y
     # Create a shortcut
     $executablePath = Join-Path "$workingDir" "$toolName.exe" -Resolve
     VM-Install-Shortcut $toolName $category $executablePath -consoleApp $true -executableDir $workingDir
