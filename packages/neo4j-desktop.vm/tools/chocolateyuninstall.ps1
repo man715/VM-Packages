@@ -1,7 +1,5 @@
 $ErrorActionPreference = 'Continue'
 Import-Module vm.common -Force -DisableNameChecking
 
-$toolName = 'Neo4jDesktop'
-$category = 'Utilities'
+VM-Uninstall-With-Uninstaller "Neo4j Desktop" "EXE" "/S"
 
-VM-Uninstall $toolName $category
