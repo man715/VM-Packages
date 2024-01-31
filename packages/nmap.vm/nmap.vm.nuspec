@@ -4,7 +4,7 @@
     <id>nmap.vm</id>
     <version>7.93.20230418.20240102</version>
     <authors>Fyodor, Nmap Project</authors>
-    <description>Port scanning utility and nc replacement with extended features</description>
+    <description>Port scanning utility and nc replacement with extended features.</description>
     <dependencies>
       <dependency id="common.vm" />
       <dependency id="npcap.vm" />
