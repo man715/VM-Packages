@@ -41,7 +41,6 @@ try {
         $executablePath = Join-Path ${Env:SystemRoot} 'system32\cmd.exe'
         $shortcutDir = ${Env:RAW_TOOLS_DIR}
         $shortcut = Join-Path $shortcutDir "$toolName.lnk"
-        $workingDir  = Join-Path ${Env:UserProfile} "Desktop"
         $target = "$executablePath"
 
         Install-ChocolateyShortcut -shortcutFilePath $shortcut -targetPath $target -RunAsAdmin
