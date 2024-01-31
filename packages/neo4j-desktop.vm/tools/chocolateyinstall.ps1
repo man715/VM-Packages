@@ -2,7 +2,7 @@ $ErrorActionPreference = 'Stop'
 Import-Module vm.common -Force -DisableNameChecking
 
 
-$toolName = 'Neo4j Desktop'
+$toolName = 'Neo4jDesktop'
 $category = 'Utilities'
 
 $exeUrl = 'https://dist.neo4j.org/neo4j-desktop/win-offline/Neo4j%20Desktop%20Setup%201.5.9.exe'
