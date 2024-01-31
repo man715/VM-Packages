@@ -1,7 +1,7 @@
 $ErrorActionPreference = 'Continue'
 Import-Module vm.common -Force -DisableNameChecking
 
-$toolName = 'hashcat'
-$category = 'Credential Access'
+$toolName = 'Neo4j Desktop'
+$category = 'Utilities'
 
 VM-Uninstall $toolName $category

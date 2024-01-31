@@ -4,7 +4,7 @@
     <id>Neo4j Desktop</id>
     <version>1.5.9.20240130</version>
     <authors>Neo4j</authors>
-    <description>Neo4j Desktop is a local development environment for working with Neo4j.</description>
+    <description>Neo4j Desktop is a local development environment for working with Neo4j. </description>
     <dependencies>
       <dependency id="common.vm" />
     </dependencies>
