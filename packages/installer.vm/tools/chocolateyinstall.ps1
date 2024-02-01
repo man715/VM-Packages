@@ -36,38 +36,40 @@ try {
     $customLayout = Join-Path ${Env:VM_COMMON_DIR} "CustomStartLayout.xml"
     if (Test-Path $customLayout) {
 
+        $toolName = 'Admin Command Prompt'
+
         # Create an Admin Command Prompt shortcut and it to pin to taskbar.
         $executablePath = Join-Path ${Env:SystemRoot} 'system32\cmd.exe'
         $shortcutDir = ${Env:RAW_TOOLS_DIR}
-        $shortcut = Join-Path $shortcutDir "$toolName.lnk"
+        $shortcutPath = Join-Path $shortcutDir "$toolName.lnk"
         $workingDir  = "%USERPROFILE%\Desktop"
         $target = "$executablePath"
 		$cmdargs = "/k cd `"$workingDir`""
 
 		$WshShell = New-Object -comObject WScript.Shell
-		$Shortcut = $WshShell.CreateShortcut("$shortcut")
+		$Shortcut = $WshShell.CreateShortcut("$shortcutPath")
 		$Shortcut.TargetPath = "$target"
 		$Shortcut.Arguments = $cmdargs
 		$Shortcut.Save()
 
-        VM-Assert-Path $shortcut
+        VM-Assert-Path $shortcutPath
 
 		$toolName = 'Admin PowerShell'
 
         $executablePath = Join-Path ${Env:SystemRoot} 'System32\WindowsPowerShell\v1.0\powershell.exe'
         $shortcutDir = ${Env:RAW_TOOLS_DIR}
-        $shortcut = Join-Path $shortcutDir "$toolName.lnk"
+        $shortcutPath = Join-Path $shortcutDir "$toolName.lnk"
         $workingDir  = "$Env:USERPROFILE\Desktop"
         $target = "$executablePath"
 		$cmdargs = "-NoExit cd `"$workingDir`""
 
 		$WshShell = New-Object -comObject WScript.Shell
-		$Shortcut = $WshShell.CreateShortcut("$shortcut")
+		$Shortcut = $WshShell.CreateShortcut("$shortcutPath")
 		$Shortcut.TargetPath = "$target"
 		$Shortcut.Arguments = $cmdargs
 		$Shortcut.Save()
 
-		VM-Assert-Path $shortcut
+		VM-Assert-Path $shortcutPath
 
         Import-StartLayout -LayoutPath $customLayout -MountPath "C:\"
         Stop-Process -Name explorer -Force  # This restarts the explorer process so that the new taskbar is displayed.
