@@ -1,30 +1,36 @@
 $ErrorActionPreference = 'Stop'
 Import-Module vm.common -Force -DisableNameChecking
 
-$toolName = 'Neo4j Desktop'
+$toolName = 'MobaXterm'
 $category = 'Utilities'
 
 try {
-    $exeUrl = 'https://dist.neo4j.org/neo4j-desktop/win-offline/Neo4j%20Desktop%20Setup%201.5.9.exe'
-    $exeSha256 = 'F89729DBA9A8AE4694C5F6F4AB0B5B22D86D0A682530BFE123D826BA15F2F162'
-    $installerName = Split-Path -Path $exeUrl -Leaf
+    $zipUrl = 'https://download.mobatek.net/2362023122033030/MobaXterm_Installer_v23.6.zip'
+    $zipSha256 = '6770BB1538143F530441E9DE17583D99E5CB529AE54340F84DE1F313F4081927'
+    $installerName = Split-Path -Path $zipUrl -Leaf
 
     $packageArgs = @{
         packageName   = ${Env:ChocolateyPackageName}
-        url           = $exeUrl
-        checksum      = $exeSha256
+        url           = $zipUrl
+        checksum      = $zipSha256
         checksumType  = "sha256"
         fileFullPath  = Join-Path ${Env:TEMP} $installerName
-        argumentList  = '/S /allusers'
+        argumentList  = '/qn'
     }
+    
     $filePath = Get-ChocolateyWebFile @packageArgs
-    $executablePath = $(Join-Path ${env:ProgramFiles} "Neo4j Desktop\Neo4j Desktop.exe")
+
+    Expand-Archive $filepath ${ENV:TEMP}
+
+    $filePath = Join-Path ${ENV:TEMP} "\MobaXterm_installer_23.6\MobaXterm_installer_23.6.msi"
+
+    $executablePath = $(Join-Path ${env:ProgramFiles(x86)} "Mobatek\MobaXterm\MobaXterm.exe")
 
     VM-Assert-Path $packageArgs.fileFullPath
 
     $rc = (Start-Process -FilePath $filePath -ArgumentList $packageArgs.argumentList -PassThru -Wait).ExitCode
     if ($rc -eq 1) {
-        throw "Neo4j Desktop returned a failure exit code ($rc) for: ${Env:ChocolateyPackageName}"
+        throw "MobaXterm returned a failure exit code ($rc) for: ${Env:ChocolateyPackageName}"
     } else {
         VM-Assert-Path $executablePath
     }
