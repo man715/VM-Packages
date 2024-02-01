@@ -59,7 +59,7 @@ try {
         $executablePath = Join-Path ${Env:SystemRoot} 'System32\WindowsPowerShell\v1.0\powershell.exe'
         $shortcutDir = ${Env:RAW_TOOLS_DIR}
         $shortcutPath = Join-Path $shortcutDir "$toolName.lnk"
-        $workingDir  = "$Env:USERPROFILE\Desktop"
+        $workingDir  = '$Env:USERPROFILE\Desktop'
         $target = "$executablePath"
 		$cmdargs = "-NoExit cd `"$workingDir`""
 
