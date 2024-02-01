@@ -51,7 +51,7 @@ try {
 		$Shortcut.Save()
 
         VM-Assert-Path $shortcut
-		
+
 		$toolName = 'Admin PowerShell'
 
         $executablePath = Join-Path ${Env:SystemRoot} 'System32\WindowsPowerShell\v1.0\powershell.exe'
@@ -66,7 +66,7 @@ try {
 		$Shortcut.TargetPath = "$target"
 		$Shortcut.Arguments = $cmdargs
 		$Shortcut.Save()
-		
+
 		VM-Assert-Path $shortcut
 
         Import-StartLayout -LayoutPath $customLayout -MountPath "C:\"
