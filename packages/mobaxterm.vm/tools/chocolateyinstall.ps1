@@ -17,7 +17,7 @@ try {
         fileFullPath  = Join-Path ${Env:TEMP} $installerName
         argumentList  = '/qn'
     }
-    
+
     $filePath = Get-ChocolateyWebFile @packageArgs
 
     Expand-Archive $filepath ${ENV:TEMP}
