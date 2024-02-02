@@ -2,8 +2,8 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>mobaxterm.vm</id>
-    <version>23.06.0.20240201</version>
-    <authors>Hobbit</authors>
+    <version>23.06.0.20240202</version>
+    <authors>Mobatek</authors>
     <description>Enhanced terminal for Windows with X11 server, tabbed SSH client, network tools and more.</description>
     <dependencies>
       <dependency id="common.vm" />
